@@ -258,14 +258,14 @@ public:
 
                                 cout << endl << "Ano de lancamento-> ";
                                 cin >> auxAno;
-                                while (auxAno < 1800 || auxAno <= 0 || auxAno > 2023) {
+                                while (auxAno < 1800 || auxAno <= 0 || auxAno > 2023) { // Não permite que seja colocado um ano igual ou menor que zero.
                                     cout << "Informe uma data correta-> ";
                                     cin >> auxAno;
                                 }
 
                                 cout << endl << "Valor-> ";
                                 cin >> auxValor;
-                                while (auxValor < 0) {
+                                while (auxValor < 0) { // Não permite numeros menores que zero.
                                     cout << "Informe um valor igual ou maior do que zero-> ";
                                     cin >> auxValor;
                                 }
@@ -330,13 +330,13 @@ public:
                     switch (auxEscolha) {
 
                         case 1: {
-                            if (jogos.empty()) {    // ENCONTRA O VECTOR VAZIO
+                            if (jogos.empty()) {    // Encontra o vector vazio
                                 cout << endl << "! Nenhum Jogo cadastrado !" << endl;
                             }
-                            else {      // LISTA TODOS OS JOGOS DENTRO DO VECTOR
+                            else {      // Lista todos os jogos dentro do vector
                                 cout << endl << "<- Jogos para Download ->" << endl;
 
-                                for (int i = 0; i < jogos.size(); i++) {    // PERCORRE TODO O VECTOR JOGOS
+                                for (int i = 0; i < jogos.size(); i++) {    // Percorre o vector jogos.
                                     cout << endl << "TITULO -> " << jogos[i].getTituloJogo();
                                     cout << endl << "TIPO -> " << jogos[i].getTipoJogo();
                                     cout << endl << "ANO DE LANCAMENTO -> " << jogos[i].getAno();
@@ -347,7 +347,7 @@ public:
                         }
                         break;
 
-                        case 2: {
+                        case 2: { // Compra jogo
                             if (usuarioAtivo.getSaldo() != 0) {    // VERIFICA SE O VALOR É DIFERENTE DE ZERO
 
                                 cout << endl << "QUAL ELEMENTO VOCE DESEJA COMPRAR: ";
@@ -358,7 +358,7 @@ public:
                                 for (int i = 0; i < jogos.size(); i++) { // PERCORRE O VECTOR PARA ECONTRAR O JOGO DESEJADO
 
                                     if (jogos[i].getTituloJogo() == auxCompra) { // VERIFICA SE O AUXCOMPRA É IGUAL A ALGUM NOME DE JOGO
-                                        encontraJogo = true;
+                                        encontraJogo = true; // Recebe true se econtrar
                                         if (usuarioAtivo.getSaldo() > jogos[i].getValor()) {
                                             usuarioAtivo.setSaldo(usuarioAtivo.getSaldo() - jogos[i].getValor());
                                             cout << endl << "-> JOGO ADQUIRIDO COM SUCESSO" << endl;
@@ -368,7 +368,7 @@ public:
                                         }
                                     }
                                 }
-                                if (!encontraJogo) {
+                                if (!encontraJogo) { // Se for diferente de true, não é encontrado.
                                     cout << endl << "-> JOGO NAO ENCONTRADO" << endl;
                                 }
                             }
@@ -380,44 +380,35 @@ public:
                         }
                         break;
 
-                        case 3: {
-                            if (contador == 1) {
-                                cout << endl << "-> Informe sua senha para continuar: ";
-                                cin >> auxSenha;
+                        case 3: { // Adiciona saldo
 
-                                if (usuarioAtivo.getSenha() != auxSenha) {
-                                    cout << endl << "! Senha do usuário incorreta." << endl;
-                                }
-                                else {
-                                    cout << endl << "Qual valor a ser depositado ->";
+                            cout << endl << "-> Informe sua senha para continuar: ";
+                            cin >> auxSenha;     
+
+                            if (usuarioAtivo.getSenha() != auxSenha) { // Valida a senha do usuário, para colocar saldo.
+                                cout << endl << "! Senha do usuário incorreta." << endl;
+                            }
+                            else {
+                                cout << endl << "Qual valor a ser depositado ->";
+                                cin >> auxValor;
+
+                                while (auxValor <= 0) { // Não permite valores iguais ou menores do que 0.
+                                    cout << "Valores acima de zero ->";
                                     cin >> auxValor;
-                                    while (auxValor <= 0) {
-                                        cout << "Valores acima de zero ->";
-                                        cin >> auxValor;
-                                    }
-                                    auxSaldo = usuarioAtivo.getSaldo() + auxValor;
-                                    usuarioAtivo.setSaldo(auxSaldo);
                                 }
-
-                            }
-                            else {
-                                cout << endl << "-> Apenas usuarios cadastrados podem adicionar saldo" << endl;
-                            }
+                                auxSaldo = usuarioAtivo.getSaldo() + auxValor; // Soma o valor adiconado com o valor que já esta na carteira.
+                                usuarioAtivo.setSaldo(auxSaldo); // Guarda o valor dentro do saldo do usuário.
+                            }   
+                            
                         }
                         break;
 
-                        case 4: {
-                            if (contador == 1) {
-                                cout << endl << "Saldo atualizado -> " << usuarioAtivo.getSaldo() << "R$" << endl;
-                            }
-                            else {
-                                cout << endl << "-> Apenas usuarios cadastrados possuem saldo" << endl;
-                            }
-
+                        case 4: { // Mostra saldo atualizado.
+                            cout << endl << "Saldo atualizado -> " << usuarioAtivo.getSaldo() << "R$" << endl;    
                         }
                         break;
 
-                        case 5: {
+                        case 5: { // Volta ao menu cadastro..
                             for (int i = 0; i < usuarios.size(); i++)
                             {
                                 if (usuarios[i].getEmail() == usuarioAtivo.getEmail())
@@ -437,7 +428,7 @@ public:
 
             }
             else {
-                if (contador == 3) {
+                if (contador == 3) { // Validação do usuário não cadastrado.
                     auxEscolha = menuNaoCadastrado();
                     while (auxEscolha != 4) {
 
