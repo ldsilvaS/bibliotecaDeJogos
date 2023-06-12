@@ -1,0 +1,9 @@
+﻿  bibliotecaDeJogos.cpp
+C:\Users\lucas\Documents\bibliotecaDeJogos\bibliotecaDeJogos\App.h(200,65): warning C4267: '=': conversão de 'size_t' para 'int', possível perda de dados
+  Jogo.cpp
+  Pessoa.cpp
+  Usuario.cpp
+  Gerando Código...
+C:\Users\lucas\Documents\bibliotecaDeJogos\bibliotecaDeJogos\App.h(52): warning C4715: 'App::usuarioJaCadastrado': nem todos os caminhos de controle retornam um valor
+C:\Users\lucas\Documents\bibliotecaDeJogos\bibliotecaDeJogos\App.h(35): warning C4715: 'App::jogoJaCadastrado': nem todos os caminhos de controle retornam um valor
+  bibliotecaDeJogos.vcxproj -> C:\Users\lucas\Documents\bibliotecaDeJogos\x64\Debug\bibliotecaDeJogos.exe
