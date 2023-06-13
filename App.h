@@ -145,10 +145,12 @@ public:
                     cout << endl << "<- REGISTRO ->" << endl;
 
                     cout << endl << "Nome -> ";
-                    cin >> auxNome;
+                    cin.ignore();
+                    getline(cin, auxNome);
                     while (encontraNumeros(auxNome) == true) { // Reconhece numeros no nome, e não permite.
                         cout << "! Digite apenas letras ->  ";
-                        cin >> auxNome;
+                        cin.ignore();
+                        getline(cin, auxNome);
                     }
 
                     cout << endl << "CPF / CNPJ -> ";
@@ -239,21 +241,38 @@ public:
                         if (contador == 1 && tamanhoId == 14) {   // CADASTRO DO JOGO
                             {
                                 cout << endl << "Titulo-> ";
-                                cin >> auxTitulo;
+                                cin.ignore();
+                                getline(cin, auxTitulo);
                                 while (jogoJaCadastrado(auxTitulo) == true) { // Procura se a ID já nao foi cadastrada.
                                     cout << "! Informe um jogo que ainda nao foi cadastrado -> ";
-                                    cin >> auxTitulo;
+                                    cin.ignore();
+                                    getline(cin, auxTitulo);
+                                    while (encontraNumeros(auxTitulo) == true) { // Reconhece numeros no nome, e não permite.
+                                        cout << "! Digite apenas letras ->  ";
+                                        cin.ignore();
+                                        getline(cin, auxTitulo);
+                                    }
                                 }
-                                while (encontraNumeros(auxTitulo) == true) { // Reconhce numeros no nome, e não permite.
+                                while (encontraNumeros(auxTitulo) == true) { // Reconhece numeros no nome, e não permite.
                                     cout << "! Digite apenas letras ->  ";
-                                    cin >> auxTitulo;
+                                    cin.ignore();
+                                    getline(cin, auxTitulo);
+                                    while (jogoJaCadastrado(auxTitulo) == true) { // Procura se a ID já nao foi cadastrada.
+                                        cout << "! Informe um jogo que ainda nao foi cadastrado -> ";
+                                        cin.ignore();
+                                        getline(cin, auxTitulo);
+                                    }
                                 }
+     
                            
                                 cout << endl << "Tipo-> ";
-                                cin >> auxTipo;
+                                cin.ignore();
+                                getline(cin, auxTipo);
                                 while (encontraNumeros(auxTipo) == true) { // Reconhece numeros no nome, e não permite.
                                     cout << "! Digite apenas letras ->  ";
-                                    cin >> auxTipo;
+                                    cin.ignore();
+                                    getline(cin, auxTipo);
+
                                 }
 
                                 cout << endl << "Ano de lancamento-> ";
