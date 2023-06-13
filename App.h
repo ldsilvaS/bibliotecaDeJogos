@@ -149,7 +149,6 @@ public:
                     getline(cin, auxNome);
                     while (encontraNumeros(auxNome) == true) { // Reconhece numeros no nome, e não permite.
                         cout << "! Digite apenas letras ->  ";
-                        cin.ignore();
                         getline(cin, auxNome);
                     }
 
@@ -176,7 +175,7 @@ public:
                     }
 
 
-                    cout << endl << " Senha-> ";
+                    cout << endl << "Senha-> ";
                     cin >> auxSenha;
                     auxValor = 0;
 
@@ -245,34 +244,7 @@ public:
                                 getline(cin, auxTitulo);
                                 while (jogoJaCadastrado(auxTitulo) == true) { // Procura se a ID já nao foi cadastrada.
                                     cout << "! Informe um jogo que ainda nao foi cadastrado -> ";
-                                    cin.ignore();
                                     getline(cin, auxTitulo);
-                                    while (encontraNumeros(auxTitulo) == true) { // Reconhece numeros no nome, e não permite.
-                                        cout << "! Digite apenas letras ->  ";
-                                        cin.ignore();
-                                        getline(cin, auxTitulo);
-                                    }
-                                }
-                                while (encontraNumeros(auxTitulo) == true) { // Reconhece numeros no nome, e não permite.
-                                    cout << "! Digite apenas letras ->  ";
-                                    cin.ignore();
-                                    getline(cin, auxTitulo);
-                                    while (jogoJaCadastrado(auxTitulo) == true) { // Procura se a ID já nao foi cadastrada.
-                                        cout << "! Informe um jogo que ainda nao foi cadastrado -> ";
-                                        cin.ignore();
-                                        getline(cin, auxTitulo);
-                                    }
-                                }
-     
-                           
-                                cout << endl << "Tipo-> ";
-                                cin.ignore();
-                                getline(cin, auxTipo);
-                                while (encontraNumeros(auxTipo) == true) { // Reconhece numeros no nome, e não permite.
-                                    cout << "! Digite apenas letras ->  ";
-                                    cin.ignore();
-                                    getline(cin, auxTipo);
-
                                 }
 
                                 cout << endl << "Ano de lancamento-> ";
@@ -281,6 +253,17 @@ public:
                                     cout << "Informe uma data correta-> ";
                                     cin >> auxAno;
                                 }
+                           
+                                cout << endl << "Tipo-> ";
+                                cin.ignore();
+                                getline(cin, auxTipo);
+                                while (encontraNumeros(auxTipo) == true) { // Reconhece numeros no nome, e não permite.
+                                    cout << "! Digite apenas letras ->  ";
+                                    getline(cin, auxTipo);
+
+                                }
+
+                                
 
                                 cout << endl << "Valor-> ";
                                 cin >> auxValor;
@@ -311,10 +294,10 @@ public:
                             cout << endl << "<- Jogos para Download ->" << endl;
 
                             for (int i = 0; i < jogos.size(); i++) { // Percorre todo o vector de jogos.
-                                cout << endl << "TITULO -> " << jogos[i].getTituloJogo();
-                                cout << endl << "TIPO -> " << jogos[i].getTipoJogo();
-                                cout << endl << "ANO DE LANCAMENTO -> " << jogos[i].getAno();
-                                cout << endl << "Valor -> " << jogos[i].getValor() << "R$" << endl;
+                                cout << endl << "TITULO -> ' " << jogos[i].getTituloJogo() << " '";
+                                cout << endl << "TIPO -> ' " << jogos[i].getTipoJogo() << " '";
+                                cout << endl << "ANO DE LANCAMENTO -> ' " << jogos[i].getAno() << " '";
+                                cout << endl << "VALOR -> ' " << jogos[i].getValor() << "R$" << " '" << endl;
                                 cout << endl << "<-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~->" << endl;
                             }
                         }
@@ -356,10 +339,10 @@ public:
                                 cout << endl << "<- Jogos para Download ->" << endl;
 
                                 for (int i = 0; i < jogos.size(); i++) {    // Percorre o vector jogos.
-                                    cout << endl << "TITULO -> " << jogos[i].getTituloJogo();
-                                    cout << endl << "TIPO -> " << jogos[i].getTipoJogo();
-                                    cout << endl << "ANO DE LANCAMENTO -> " << jogos[i].getAno();
-                                    cout << endl << "Valor -> " << jogos[i].getValor() << "R$" << endl;
+                                    cout << endl << "TITULO -> ' " << jogos[i].getTituloJogo() << " '";
+                                    cout << endl << "TIPO -> ' " << jogos[i].getTipoJogo() << " '";
+                                    cout << endl << "ANO DE LANCAMENTO -> ' " << jogos[i].getAno() << " '";
+                                    cout << endl << "VALOR -> ' " << jogos[i].getValor() << "R$" << " '" << endl;
                                     cout << endl << "<-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~->" << endl;
                                 }
                             }
@@ -453,7 +436,7 @@ public:
 
                         switch (auxEscolha) {
 
-                        case 1: {
+                            case 1: {
                             if (jogos.empty()) {    // ENCONTRA O VECTOR VAZIO
                                 cout << endl << "! Nenhum Jogo cadastrado !" << endl;
                             }
@@ -461,17 +444,17 @@ public:
                                 cout << endl << "<- Jogos para Download ->" << endl;
 
                                 for (int i = 0; i < jogos.size(); i++) { // PERCORRE TODO O VECTOR JOGOS
-                                    cout << endl << "TITULO -> " << jogos[i].getTituloJogo();
-                                    cout << endl << "TIPO -> " << jogos[i].getTipoJogo();
-                                    cout << endl << "ANO DE LANCAMENTO -> " << jogos[i].getAno();
-                                    cout << endl << "Valor -> " << jogos[i].getValor() << "R$" << endl;
+                                    cout << endl << "TITULO -> ' " << jogos[i].getTituloJogo() << " '";
+                                    cout << endl << "TIPO -> ' " << jogos[i].getTipoJogo() << " '";
+                                    cout << endl << "ANO DE LANCAMENTO -> ' " << jogos[i].getAno() << " '";
+                                    cout << endl << "VALOR -> ' " << jogos[i].getValor() << "R$" << " '" << endl;
                                     cout << endl << "<-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~->" << endl;
                                 }
                             }
                         }
-                              break;
+                            break;
 
-                        case 2: { // RETORNA PARA O MENU CADASTRO
+                            case 2: { // RETORNA PARA O MENU CADASTRO
                             for (int i = 0; i < usuarios.size(); i++)
                             {
                                 if (usuarios[i].getEmail() == usuarioAtivo.getEmail())
@@ -483,7 +466,7 @@ public:
                             contador = 0;
                             return Cadastro();
                         }
-                              break;
+                            break;
 
                         }
                         auxEscolha = menuNaoCadastrado();
