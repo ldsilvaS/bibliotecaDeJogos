@@ -127,7 +127,7 @@ public:
     // INICIO DA APLICACAO
 
     void Inicio() {
-        cout << "APERTE QUALQUER TECLA PARA INCIAR O PROGRAMA.. " << endl;
+        cout << "APERTE QUALQUER TECLA PARA INICIAR O PROGRAMA.. " << endl;
         cin.get();
         cout << endl << "INICIADO." << endl << endl;
         
@@ -353,7 +353,8 @@ public:
                             if (usuarioAtivo.getSaldo() != 0) {    // VERIFICA SE O VALOR É DIFERENTE DE ZERO
 
                                 cout << endl << "QUAL ELEMENTO VOCE DESEJA COMPRAR: ";
-                                cin >> auxCompra;
+                                cin.ignore();
+                                getline(cin, auxCompra);
 
                                 bool encontraJogo = false;
 
