@@ -2,6 +2,7 @@
 #include "Jogo.h"
 #include "Usuario.h"
 #include "Conta.h"
+#include <fstream>
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -11,7 +12,6 @@ using namespace std;
 
 class App {
 private:
-
     vector<Jogo> jogos;
     vector<Usuario> usuarios;
     string auxNome, auxEmail, auxSenha, auxId;
@@ -19,7 +19,6 @@ private:
     double auxValor = 0;
     int contador = 0, tamanhoId = 0, op = 0;
     Usuario usuarioAtivo;
-
 public:
     App() {};
 
@@ -102,6 +101,7 @@ public:
         cout << endl << "[4] -> Mostrar meu saldo";
         cout << endl << "[5] -> Voltar para o login";
 
+
         cout << endl << endl << "Informe a opcao desejada: ";
         cin >> op;
         while (op > 5 || op <= 0) {
@@ -182,6 +182,8 @@ public:
                     Usuario usuario(auxNome, auxId, auxEmail, auxSenha, auxSaldo);
 
                     usuarios.push_back(usuario);
+
+
 
                 }
                 break;
@@ -362,7 +364,7 @@ public:
 
                                     if (jogos[i].getTituloJogo() == auxCompra) { // VERIFICA SE O AUXCOMPRA É IGUAL A ALGUM NOME DE JOGO
                                         encontraJogo = true; // Recebe true se econtrar
-                                        if (usuarioAtivo.getSaldo() > jogos[i].getValor()) {
+                                        if (usuarioAtivo.getSaldo() >= jogos[i].getValor()) {
                                             usuarioAtivo.setSaldo(usuarioAtivo.getSaldo() - jogos[i].getValor());
                                             cout << endl << "-> JOGO ADQUIRIDO COM SUCESSO" << endl;
                                         }

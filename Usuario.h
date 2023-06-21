@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "Jogo.h"
 #include "Pessoa.h"
 
 using namespace std;
@@ -9,6 +11,7 @@ private:
 	string email;
 	string senha;
 	double saldo;
+	
 	
 
 
@@ -22,5 +25,7 @@ public:
 	void setSenha(string senha);
 	double getSaldo() const;
 	void setSaldo(double saldo);
+
+	
 
 };

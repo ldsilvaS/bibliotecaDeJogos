@@ -8,6 +8,7 @@ Usuario::Usuario(string nome, string id, string email, string senha, double sald
     this->email = email;
     this->senha = senha;
     this->saldo = saldo;
+    
 }
 
 string Usuario::getEmail() const { 
@@ -35,6 +36,8 @@ double Usuario::getSaldo() const {
 void Usuario::setSaldo(double saldo) {
     this->saldo = saldo;
 }
+
+
 
 
 
