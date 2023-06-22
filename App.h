@@ -2,6 +2,7 @@
 #include "Jogo.h"
 #include "Usuario.h"
 #include "Conta.h"
+#include <sstream>
 #include <fstream>
 #include <algorithm>
 #include <string>
@@ -15,12 +16,35 @@ private:
     vector<Jogo> jogos;
     vector<Usuario> usuarios;
     string auxNome, auxEmail, auxSenha, auxId;
+    string auxTitulo, auxTipo;
+    int auxAno = 0;
     double auxSaldo = 0;
     double auxValor = 0;
     int contador = 0, tamanhoId = 0, op = 0;
     Usuario usuarioAtivo;
 public:
     App() {};
+
+    //Guarda os dados cadastrados no vector usuarios e jogos, em um arquivo txt.
+
+    void guardaDados() {
+        ofstream file("dados.txt");
+        if (file.is_open()) {
+            file << "DADOS DE USUARIOS" << endl;
+            for (int i = 0; i < usuarios.size(); i++) {
+                if(usuarios[i].getNome() != " ")
+                file << usuarios[i].getNome() << ", " << usuarios[i].getId() << ", " << usuarios[i].getEmail() << ", " << usuarios[i].getSenha() << ", " << usuarios[i].getSaldo() << endl;
+            }
+
+            file << "DADOS DE JOGOS" << endl;
+
+            for (int i = 0; i < jogos.size(); i++) {
+                file << jogos[i].getTituloJogo() << ", " << jogos[i].getTipoJogo() << ", " << jogos[i].getAno() << ", " << jogos[i].getValor() << endl;
+            }
+            file.close();
+        }
+
+    }
 
     // Validação de jogos já cadastrados
 
@@ -130,6 +154,7 @@ public:
         cout << "APERTE QUALQUER TECLA PARA INICIAR O PROGRAMA.. " << endl;
         cin.get();
         cout << endl << "INICIADO." << endl << endl;
+       
         
     }
 
@@ -140,6 +165,7 @@ public:
 
         while (auxEscolha <= 3) {
             switch (auxEscolha) {
+
 
                 case 1: {
                     cout << endl << "<- REGISTRO ->" << endl;
@@ -183,12 +209,15 @@ public:
 
                     usuarios.push_back(usuario);
 
+                    guardaDados();
+
 
 
                 }
                 break;
 
                 case 2: {
+
                     cout << endl << "-> Informe o seu email: ";
                     cin >> email;
 
@@ -277,6 +306,8 @@ public:
                                 Jogo jogo(auxTitulo, auxTipo, auxAno, auxValor);    // Cria um objeto JOGO
 
                                 jogos.push_back(jogo);     // Guarda o objeto JOGO dentro de uma posição do VECTOR
+
+                                guardaDados();
                             }
                         }
                         else {
@@ -419,6 +450,7 @@ public:
                                 if (usuarios[i].getEmail() == usuarioAtivo.getEmail())
                                 {
                                     usuarios[i] = usuarioAtivo;
+                                    guardaDados();
                                 }
 
                             }

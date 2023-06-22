@@ -1,0 +1,5 @@
+DADOS DE USUARIOS
+Lucas, 88888888888, lucas.info, Lucas, 0
+Empresa, 88878787878787, empresa, Empresa, 0
+DADOS DE JOGOS
+CSGO, FPS, 2009, 20

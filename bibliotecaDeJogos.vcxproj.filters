@@ -42,4 +42,7 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="dados.txt" />
+  </ItemGroup>
 </Project>

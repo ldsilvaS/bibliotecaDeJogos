@@ -138,6 +138,9 @@
     <ClInclude Include="Pessoa.h" />
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="dados.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
