@@ -46,4 +46,4 @@ Bem-vindo ao Manual do Usuário da nossa aplicação de Biblioteca de Jogos! Est
 Este Manual do Usuário forneceu informações detalhadas sobre a aplicação de Biblioteca de Jogos, abordando sua estrutura, fluxo de execução e funcionalidades disponíveis. 
 Agora você está pronto para utilizar a aplicação e desfrutar de todas as suas funcionalidades. Divirta-se com sua biblioteca de jogos!
 
-6. Os controles para cada jogo estão listados no arquivo README desse jogo.
+Muito obriado aos colaboradores!
